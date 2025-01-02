@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import React from 'react'
 
 const mlDataAnalysisProjects = [
   {

@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-
+import React from 'react'
 const education = [
   {
     degree: 'Bachelor of Technology in Computer Science (Artificial Intelligence & Machine Learning)',

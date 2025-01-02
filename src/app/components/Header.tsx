@@ -75,6 +75,7 @@ import { motion } from 'framer-motion'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { useTheme } from 'next-themes'
 import { Sun, Moon } from 'lucide-react'
+import React from 'react'
 
 const navItems = [
   { name: 'Hello', target: '#hello' },

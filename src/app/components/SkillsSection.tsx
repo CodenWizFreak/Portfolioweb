@@ -3,6 +3,7 @@
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
+import React from 'react'
 
 const skillsData = [
   {
@@ -12,7 +13,7 @@ const skillsData = [
       { name: 'Kotlin', level: 90 },
       { name: 'Dart', level: 80 },
       { name: 'Python', level: 85 },
-      { name: 'R', level: 75 },
+      { name: 'Javascript', level: 75 },
     ],
   },
   {

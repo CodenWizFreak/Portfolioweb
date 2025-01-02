@@ -7,6 +7,7 @@ import EducationSection from './components/EducationSection'
 import ResumeSection from './components/ResumeSection'
 import ContactSection from './components/ContactSection'
 import DynamicBackground from './components/DynamicBackground'
+import React from 'react'
 
 export default function Home() {
   return (

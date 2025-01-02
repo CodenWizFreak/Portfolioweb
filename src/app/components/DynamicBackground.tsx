@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { useTheme } from 'next-themes'
+import React from 'react'
 
 export default function DynamicBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)

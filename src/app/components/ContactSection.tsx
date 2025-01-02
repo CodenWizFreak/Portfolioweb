@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import React from 'react'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({

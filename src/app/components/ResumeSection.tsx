@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import { FaFileDownload, FaLaptopCode, FaServer, FaMobileAlt } from 'react-icons/fa'
 import { SiGit } from 'react-icons/si'
+import React from 'react'
 
 const skills = [
     { name: 'Mobile App Development (Jetpack Compose, Flutter, React Native)', icon: FaMobileAlt },

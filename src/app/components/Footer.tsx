@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           <div className="mb-4 text-center">
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <p>&copy; 2025 Ananyo Dasgupta. All rights reserved.</p>
           </div>
           <div className="flex space-x-4">
             <a href="https://github.com/CodenWizFreak" target="_blank" rel="noopener noreferrer" className="hover-float">
