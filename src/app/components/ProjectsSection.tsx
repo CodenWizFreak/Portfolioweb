@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import React from 'react'
+import Image from 'next/image' // Import the Image component from next/image
 
 const mlDataAnalysisProjects = [
   {
@@ -87,10 +88,13 @@ export default function ProjectsSection() {
             >
               <div className="md:flex">
                 <div className="md:flex-shrink-0">
-                  <img
+                  <Image
                     className="h-48 w-full object-cover md:w-48"
                     src={mlDataAnalysisProjects[currentIndexML].image}
                     alt={mlDataAnalysisProjects[currentIndexML].title}
+                    width={192}
+                    height={192}
+                    layout="intrinsic"
                   />
                 </div>
                 <div className="p-8">
@@ -144,10 +148,13 @@ export default function ProjectsSection() {
             >
               <div className="md:flex">
                 <div className="md:flex-shrink-0">
-                  <img
+                  <Image
                     className="h-48 w-full object-cover md:w-48"
                     src={appDevProjects[currentIndexApp].image}
                     alt={appDevProjects[currentIndexApp].title}
+                    width={192}
+                    height={192}
+                    layout="intrinsic"
                   />
                 </div>
                 <div className="p-8">
