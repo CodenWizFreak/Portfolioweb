@@ -22,8 +22,8 @@ export default function ResumeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 hover-float"
-            whileHover={{ scale: 1.03 }}
+            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
+            whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-300">Professional Summary</h3>
             <p className="text-gray-800 dark:text-gray-200">
@@ -35,8 +35,8 @@ export default function ResumeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 hover-float"
-            whileHover={{ scale: 1.03 }}
+            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
+            whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-300">Key Skills</h3>
             <ul className="grid grid-cols-2 gap-4">
@@ -58,7 +58,7 @@ export default function ResumeSection() {
           <motion.a
             href="/AnanyoResumemain.pdf"
             download
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300 hover-float"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300 card-hover"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

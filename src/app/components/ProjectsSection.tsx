@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import React from 'react'
-import Image from 'next/image' // Import the Image component from next/image
+import Image from 'next/image'
 
 const mlDataAnalysisProjects = [
   {
@@ -83,7 +83,7 @@ export default function ProjectsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover"
               whileHover={{ scale: 1.05 }}
             >
               <div className="md:flex">
@@ -108,7 +108,7 @@ export default function ProjectsSection() {
                     href={mlDataAnalysisProjects[currentIndexML].githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-500 dark:text-pink-400 hover:underline"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 card-hover"
                   >
                     <FaGithub className="mr-2" />
                     View on GitHub
@@ -143,7 +143,7 @@ export default function ProjectsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover"
               whileHover={{ scale: 1.05 }}
             >
               <div className="md:flex">
@@ -168,7 +168,7 @@ export default function ProjectsSection() {
                     href={appDevProjects[currentIndexApp].githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-500 dark:text-pink-400 hover:underline"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 card-hover"
                   >
                     <FaGithub className="mr-2" />
                     View on GitHub
@@ -194,3 +194,4 @@ export default function ProjectsSection() {
     </section>
   )
 }
+

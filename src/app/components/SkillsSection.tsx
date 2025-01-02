@@ -59,10 +59,8 @@ export default function SkillsSection() {
         <div className="space-y-12">
           {skillsData.map((category, categoryIndex) => (
             <div key={category.category}>
-              {/* Category Title */}
               <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-300 mb-6">{category.category}</h3>
 
-              {/* Skill Bars */}
               <div className="space-y-6">
                 {category.skills.map((skill, index) => (
                   <motion.div
@@ -83,9 +81,9 @@ export default function SkillsSection() {
                       <span className="text-lg font-medium text-blue-600 dark:text-blue-300">{skill.name}</span>
                       <span className="text-lg font-medium text-blue-600 dark:text-blue-300">{skill.level}%</span>
                     </div>
-                    <div className="h-4 bg-blue-200 dark:bg-blue-900 rounded-full overflow-hidden">
+                    <div className="h-4 bg-blue-200 dark:bg-blue-900 rounded-full overflow-hidden skill-bar-container">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+                        className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 skill-bar"
                         initial={{ width: 0 }}
                         animate={controls}
                         variants={{
@@ -106,3 +104,4 @@ export default function SkillsSection() {
     </section>
   )
 }
+

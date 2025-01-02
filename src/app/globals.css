@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -57,7 +57,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
   }
 }
 
@@ -117,6 +117,55 @@ body {
   }
   50% {
     opacity: 0;
+  }
+}
+
+.card-hover {
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px rgba(39, 254, 143, 0.89); /* Pink glow effect */
+}
+
+.glow-circle-container {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-circle-container:hover {
+  box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966); /* Pink glow effect */
+}
+
+.skill-bar-container {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.skill-bar-container:hover {
+  box-shadow: 0 0 15px 2px rgba(51, 238, 132, 0.884); /* Pink glow effect */
+}
+
+.skill-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
 }
 

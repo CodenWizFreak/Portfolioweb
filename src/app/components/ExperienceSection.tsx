@@ -23,7 +23,7 @@ const experiences = [
         company: 'Outlier.ai',
         period: 'Dec 2024 - Present',
         description: `
-            Assisted in the development and refinement of large language models (LLMs) by curating and preparing training data, ensuring it is high-quality, diverse, and representative of various use cases. Worked closely with data scientists and engineers to fine-tune models and enhance their performance in natural language understanding and generation. Provided feedback on model outputs and participated in iterative testing to improve the accuracy, coherence, and relevance of responses. Collaborated with cross-functional teams to identify real-world applications of LLMs, contributing to the development of advanced AI-driven solutions tailored to business needs.        `,
+            Assisted in the development and refinement of large language models (LLMs) by curating and preparing training data, ensuring it is high-quality, diverse, and representative of various use cases. Provided feedback on model outputs and participated in iterative testing to improve the accuracy, coherence, and relevance of responses. Collaborated with cross-functional teams to identify real-world applications of LLMs, contributing to the development of advanced AI-driven solutions tailored to business needs.        `,
       },
     // Add more experiences as needed
   ]
@@ -42,8 +42,8 @@ export default function ExperienceSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="mb-8 bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 hover-float"
-            whileHover={{ scale: 1.03 }}
+            className="mb-8 bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
+            whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-300">{exp.title}</h3>
             <p className="text-blue-500 dark:text-pink-400 mb-2">{exp.company}</p>

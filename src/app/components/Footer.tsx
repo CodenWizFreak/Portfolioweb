@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
               <FaLinkedin className="text-2xl hover:text-primary transition-colors" />
             </a>
             <a href="https://x.com/DGAnanyo" target="_blank" rel="noopener noreferrer" className="hover-float">
-              <FaTwitter className="text-2xl hover:text-primary transition-colors" />
+              <FaXTwitter className="text-2xl hover:text-primary transition-colors" />
             </a>
           </div>
         </div>

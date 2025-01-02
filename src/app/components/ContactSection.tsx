@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa'
+import {FaXTwitter} from 'react-icons/fa6'
 import React from 'react'
 
 export default function ContactSection() {
@@ -113,7 +114,7 @@ export default function ContactSection() {
             </div>
             <motion.button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors duration-300 hover-float"
+              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors duration-300 card-hover"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={isSubmitting}
@@ -172,7 +173,7 @@ export default function ContactSection() {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FaTwitter className="text-2xl text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" />
+              <FaXTwitter className="text-2xl text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" />
             </motion.a>
           </div>
         </motion.div>
@@ -180,3 +181,4 @@ export default function ContactSection() {
     </section>
   )
 }
+
