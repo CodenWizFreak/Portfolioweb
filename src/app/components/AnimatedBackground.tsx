@@ -3,10 +3,16 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const TechIcon: React.FC<{ icon: string; x: number; y: number }> = ({ icon, x, y }) => (
+type TechIconProps = {
+  icon: string;
+  x: number;
+  y: number;
+}
+
+const TechIcon: React.FC<TechIconProps> = ({ icon, x, y }) => (
   <motion.div
     className="absolute text-blue-300 dark:text-blue-600 opacity-20"
-    style={{ fontSize: '24px', x, y }}
+    style={{ fontSize: '24px', left: x, top: y }}
     animate={{
       y: [y, y + 50, y],
       opacity: [0.2, 0.5, 0.2],
@@ -21,7 +27,12 @@ const TechIcon: React.FC<{ icon: string; x: number; y: number }> = ({ icon, x, y
   </motion.div>
 )
 
-const Circuit: React.FC<{ x: number; y: number }> = ({ x, y }) => (
+type CircuitProps = {
+  x: number;
+  y: number;
+}
+
+const Circuit: React.FC<CircuitProps> = ({ x, y }) => (
   <svg
     className="absolute opacity-10"
     width="100"
@@ -40,7 +51,12 @@ const Circuit: React.FC<{ x: number; y: number }> = ({ x, y }) => (
   </svg>
 )
 
-const BinaryText: React.FC<{ x: number; y: number }> = ({ x, y }) => (
+type BinaryTextProps = {
+  x: number;
+  y: number;
+}
+
+const BinaryText: React.FC<BinaryTextProps> = ({ x, y }) => (
   <div
     className="absolute text-green-500 dark:text-green-300 opacity-10 font-mono text-xs"
     style={{ left: x, top: y }}
@@ -52,32 +68,35 @@ const BinaryText: React.FC<{ x: number; y: number }> = ({ x, y }) => (
 )
 
 export default function AnimatedBackground() {
-  const [elements, setElements] = useState<JSX.Element[]>([])
+  const [elements, setElements] = useState<React.ReactNode[]>([])
 
   useEffect(() => {
     const techIcons = ['💻', '🖥️', '📱', '⌨️', '🖱️', '🔌', '💾', '📡']
-    const newElements: JSX.Element[] = []
+    const newElements: React.ReactNode[] = []
 
-    const generateRandomPosition = () => ({
-      x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-      y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
-    })
+    const generateRandomPosition = () => {
+      // Get random position for the entire screen
+      const x = Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)
+      const y = Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000)
 
-    // Create tech icons
-    for (let i = 0; i < 20; i++) {
+      return { x, y }
+    }
+
+    // Create tech icons for the whole screen
+    for (let i = 0; i < 50; i++) {
       const { x, y } = generateRandomPosition()
       const icon = techIcons[Math.floor(Math.random() * techIcons.length)]
       newElements.push(<TechIcon key={`icon-${i}`} icon={icon} x={x} y={y} />)
     }
 
-    // Create circuit patterns
-    for (let i = 0; i < 15; i++) {
+    // Create circuit patterns for the whole screen
+    for (let i = 0; i < 40; i++) {
       const { x, y } = generateRandomPosition()
       newElements.push(<Circuit key={`circuit-${i}`} x={x} y={y} />)
     }
 
-    // Create binary text
-    for (let i = 0; i < 10; i++) {
+    // Create binary text for the whole screen
+    for (let i = 0; i < 20; i++) {
       const { x, y } = generateRandomPosition()
       newElements.push(<BinaryText key={`binary-${i}`} x={x} y={y} />)
     }
@@ -91,4 +110,3 @@ export default function AnimatedBackground() {
     </div>
   )
 }
-
