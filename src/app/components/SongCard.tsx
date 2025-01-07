@@ -6,7 +6,7 @@ import React from 'react'
 import { FaPlay, FaPause, FaForward } from 'react-icons/fa'
 
 const songs = [
-    { title: "Press the Play Button", src: "/rickroll.mp3" },
+    { title: "Press the Play Button", src: "/rickroll.MP3" },
     { title: "Stayin' Alive - Bee Gees", src: "/alive.mp3" },
     { title: "Kickstart My Heart - Motley Crue", src: "/motley.mp3" },
     { title: "Run To You - Bryan Adams", src: "/run.mp3" },
