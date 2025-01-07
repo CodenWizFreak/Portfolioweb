@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa'
-import {FaXTwitter} from 'react-icons/fa6'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import React from 'react'
 
 export default function ContactSection() {
@@ -140,10 +140,6 @@ export default function ContactSection() {
               dasguptaananyo28@gmail.com
             </a>
           </div>
-          <div className="flex items-center hover-float">
-            <FaPhone className="mr-4 text-2xl text-blue-500 dark:text-blue-400" />
-            <a href="tel:+1234567890" className="text-gray-800 dark:text-gray-200 hover:underline">+91 8697313610</a>
-          </div>
           <div className="flex items-center space-x-4 mt-4">
             <motion.a
               href="https://github.com/CodenWizFreak"
@@ -181,4 +177,3 @@ export default function ContactSection() {
     </section>
   )
 }
-
