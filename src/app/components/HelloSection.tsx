@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import React from 'react'
+import SongCard from './SongCard' // Import the new component
 
 const phrases = [
   "Hey, I'm Ananyo",
@@ -33,9 +34,9 @@ export default function HelloSection() {
     }
 
     const timeout = setTimeout(() => {
-      setText(prev => 
-        isDeleting 
-          ? prev.slice(0, -1) 
+      setText(prev =>
+        isDeleting
+          ? prev.slice(0, -1)
           : currentPhrase.slice(0, prev.length + 1)
       )
     }, typingSpeed)
@@ -44,12 +45,12 @@ export default function HelloSection() {
   }, [text, isDeleting, phraseIndex])
 
   return (
-    <section id="hello" className="min-h-screen flex items-center justify-center">
+    <section id="hello" className="min-h-screen flex flex-col items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center"
+        className="text-center mb-8"
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-4 animated-gradient-text">Hello There! Ananyo Here!</h1>
         <p className="text-xl md:text-2xl h-8 text-blue-500 dark:text-pink-400">
@@ -57,7 +58,9 @@ export default function HelloSection() {
           <span className="typing-animation"></span>
         </p>
       </motion.div>
+
+      {/* Include the SongCard component */}
+      <SongCard />
     </section>
   )
 }
-

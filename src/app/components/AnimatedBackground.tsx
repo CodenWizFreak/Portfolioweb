@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
 
 type TechIconProps = {
   icon: string;
@@ -9,63 +10,78 @@ type TechIconProps = {
   y: number;
 }
 
-const TechIcon: React.FC<TechIconProps> = ({ icon, x, y }) => (
-  <motion.div
-    className="absolute text-blue-300 dark:text-blue-600 opacity-20"
-    style={{ fontSize: '24px', left: x, top: y }}
-    animate={{
-      y: [y, y + 50, y],
-      opacity: [0.2, 0.5, 0.2],
-    }}
-    transition={{
-      duration: Math.random() * 5 + 5,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    }}
-  >
-    {icon}
-  </motion.div>
-)
+const TechIcon: React.FC<TechIconProps> = ({ icon, x, y }) => {
+  const { theme } = useTheme()
+  const iconColor = theme === 'dark' ? 'text-blue-300' : 'text-blue-800'
+
+  return (
+    <motion.div
+      className={`absolute ${iconColor} opacity-20`}
+      style={{ fontSize: '24px', left: x, top: y }}
+      animate={{
+        y: [y, y + 50, y],
+        opacity: [0.2, 0.5, 0.2],
+      }}
+      transition={{
+        duration: Math.random() * 5 + 5,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      }}
+    >
+      {icon}
+    </motion.div>
+  )
+}
 
 type CircuitProps = {
   x: number;
   y: number;
 }
 
-const Circuit: React.FC<CircuitProps> = ({ x, y }) => (
-  <svg
-    className="absolute opacity-10"
-    width="100"
-    height="100"
-    viewBox="0 0 100 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{ left: x, top: y }}
-  >
-    <path
-      d="M10 50 H40 M60 50 H90 M50 10 V40 M50 60 V90"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-    <circle cx="50" cy="50" r="5" fill="currentColor" />
-  </svg>
-)
+const Circuit: React.FC<CircuitProps> = ({ x, y }) => {
+  const { theme } = useTheme()
+  const strokeColor = theme === 'dark' ? 'text-gray-500' : 'text-gray-700'
+
+  return (
+    <svg
+      className={`absolute opacity-10 ${strokeColor}`}
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ left: x, top: y }}
+    >
+      <path
+        d="M10 50 H40 M60 50 H90 M50 10 V40 M50 60 V90"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle cx="50" cy="50" r="5" fill="currentColor" />
+    </svg>
+  )
+}
 
 type BinaryTextProps = {
   x: number;
   y: number;
 }
 
-const BinaryText: React.FC<BinaryTextProps> = ({ x, y }) => (
-  <div
-    className="absolute text-green-500 dark:text-green-300 opacity-10 font-mono text-xs"
-    style={{ left: x, top: y }}
-  >
-    {Array(10).fill(0).map((_, i) => (
-      <div key={i}>{Math.random().toString(2).slice(2, 10)}</div>
-    ))}
-  </div>
-)
+const BinaryText: React.FC<BinaryTextProps> = ({ x, y }) => {
+  const { theme } = useTheme()
+  const textColor = theme === 'dark' ? 'text-green-300' : 'text-green-900'
+
+  return (
+    <div
+      className={`absolute ${textColor} opacity-10 font-mono text-xs`}
+      style={{ left: x, top: y }}
+    >
+      {Array(10).fill(0).map((_, i) => (
+        <div key={i}>{Math.random().toString(2).slice(2, 10)}</div>
+      ))}
+    </div>
+  )
+}
 
 export default function AnimatedBackground() {
   const [elements, setElements] = useState<React.ReactNode[]>([])

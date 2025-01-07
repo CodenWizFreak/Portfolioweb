@@ -1,56 +1,85 @@
 'use client'
+
 import { motion } from 'framer-motion'
 import React from 'react'
+import { Calendar, MapPin, Briefcase } from 'lucide-react'
+
 const experiences = [
-    {
-      title: 'Web Development Intern',
-      company: 'CodSoft',
-      period: 'Feb 2024 - Mar 2024',
-      description: `
-        Created eight tailored sections for my personal web-based portfolio, showcasing expertise in front-end development (CSS/HTML), attracting at least five local businesses for collaboration. Designed and launched a landing page for an E-Book Store, enhancing user engagement by 30% with interactive navigation buttons. Developed a responsive web-based calculator app with HTML, CSS, and JavaScript, enabling basic arithmetic operations.
-      `,
-    },
-    {
-      title: 'Android Development Intern',
-      company: 'Prodigy Infotech',
-      period: 'Feb 2024 - Mar 2024',
-      description: `
-        Developed an interactive Tic-Tac-Toe game allowing two players to alternate turns on a 3x3 grid. Designed a user-friendly calculator app with day and night mode toggle, achieving a 75% user retention rate within the first month of launch.
-      `,
-    },
-    {
-        title: 'LLM Trainer',
-        company: 'Outlier.ai',
-        period: 'Dec 2024 - Present',
-        description: `
-            Assisted in the development and refinement of large language models (LLMs) by curating and preparing training data, ensuring it is high-quality, diverse, and representative of various use cases. Provided feedback on model outputs and participated in iterative testing to improve the accuracy, coherence, and relevance of responses. Collaborated with cross-functional teams to identify real-world applications of LLMs, contributing to the development of advanced AI-driven solutions tailored to business needs.        `,
-      },
-    // Add more experiences as needed
-  ]
-  
-  
-  
+  {
+    title: 'Web Development Intern',
+    company: 'CodSoft',
+    period: 'Feb 2024 - Mar 2024',
+    location: 'Remote',
+    description: 'Developed responsive web applications using modern JavaScript frameworks and libraries.',
+  },
+  {
+    title: 'Android Development Intern',
+    company: 'Prodigy Infotech',
+    period: 'Feb 2024 - Mar 2024',
+    location: 'Remote',
+    description: 'Created native Android applications using Kotlin and implemented Material Design principles.',
+  },
+  {
+    title: 'LLM Trainer',
+    company: 'Outlier.ai',
+    period: 'Dec 2024 - Present',
+    location: 'Remote',
+    description: 'Trained and fine-tuned large language models for various NLP tasks and applications.',
+  },
+]
+
+const ExperienceCard: React.FC<(typeof experiences)[0]> = ({
+  title,
+  company,
+  period,
+  location,
+  description,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.05 }}
+    className="mb-8 bg-gradient-to-br from-white/10 to-white/5 dark:from-black/30 dark:to-black/20 backdrop-blur-md rounded-xl shadow-lg p-6 transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:shadow-[0_0_20px_5px_rgba(39,254,143,0.89)] dark:hover:shadow-[0_0_20px_5px_rgba(39,254,143,0.89)]"
+  >
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+      <h3 className="text-xl font-bold mb-2 md:mb-0 text-blue-600 dark:text-blue-300">{title}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+        <Briefcase className="w-4 h-4 mr-1" />
+        {company}
+      </p>
+    </div>
+    <div className="flex flex-col md:flex-row md:items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <p className="flex items-center mb-2 md:mb-0 md:mr-4">
+        <Calendar className="w-4 h-4 mr-1" />
+        {period}
+      </p>
+      <p className="flex items-center">
+        <MapPin className="w-4 h-4 mr-1" />
+        {location}
+      </p>
+    </div>
+    <p className="text-gray-700 dark:text-gray-300">{description}</p>
+  </motion.div>
+)
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="min-h-screen py-20">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animated-gradient-text">Experience</h2>
-      <div className="max-w-3xl mx-auto">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={exp.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="mb-8 bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-300">{exp.title}</h3>
-            <p className="text-blue-500 dark:text-pink-400 mb-2">{exp.company}</p>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.period}</p>
-            <p className="text-gray-800 dark:text-gray-200">{exp.description}</p>
-          </motion.div>
-        ))}
+    <section id="experience" className="min-h-screen py-20 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+            Experience
+          </span>
+        </h2>
+        <div className="relative">
+          <div className="absolute left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
+          <div className="ml-6">
+            {experiences.map((exp, index) => (
+              <ExperienceCard key={index} {...exp} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

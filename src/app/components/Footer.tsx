@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           <div className="mb-4 text-center">
-            <p>&copy; 2025 Ananyo Dasgupta. All rights reserved.</p>
+            <p>Developed with passion❤️, caffeine☕, and just a touch of madness. Enjoy the chaos!😜 </p>
           </div>
           <div className="flex space-x-4">
             <a href="https://github.com/CodenWizFreak" target="_blank" rel="noopener noreferrer" className="hover-float">
