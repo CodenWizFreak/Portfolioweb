@@ -20,7 +20,7 @@ export default function AboutSection() {
           </p>
           <p className="text-lg text-blue-700 dark:text-blue-300 font-russo">
             When I&apos;m not coding, you might find me diving into the latest tech trends, 
-            debugging my way through challenges, or simply enjoying a good 80s rock playlist. :)
+            debugging my way through challenges, or simply enjoying a good 80s rock playlist (Which you may have already guessed from my choice of songs) :)
           </p>
         </motion.div>
         <motion.div
@@ -30,7 +30,7 @@ export default function AboutSection() {
           className="relative w-64 h-64 mx-auto"
           whileHover={{ scale: 1.05 }}
         >
-          <div className="absolute inset-0 rounded-full bg-pink-500 glow-circle-container">
+          <div className="absolute inset-0 rounded-full glow-gradient-ring">
             <div className="absolute inset-0.5 rounded-full overflow-hidden bg-white dark:bg-gray-800">
               <Image
                 src="/profile.jpg"

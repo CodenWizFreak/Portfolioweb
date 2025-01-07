@@ -216,3 +216,56 @@ body {
 .animate-slide {
   animation: slide 8s linear infinite;
 }
+
+/* Add Gradient Animation for the Outer Ring */
+@keyframes gradient-ring-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Continuous gradient animation */
+.glow-gradient-ring {
+  background-size: 300% 300%;
+  background-image: linear-gradient(
+    -45deg,
+    #4a90e2,
+    #9b59b6,
+    #3498db,
+    #f39c12,
+    #4a90e2
+  );
+  animation: gradient-ring-animation 3s ease infinite; /* Continuous gradient animation */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-width: 2px; /* This controls the thickness of the ring */
+  border-style: solid;
+  border-color: transparent; /* Ensure the ring's background color is controlled by gradient */
+  border-radius: 50%; /* Keep the shape round */
+}
+
+
+@keyframes gradient-ring-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hover effect for green glow and scale */
+.glow-gradient-ring:hover {
+  box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966); /* Green glow effect */
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+
