@@ -115,7 +115,7 @@ export default function SkillsSection() {
     >
       <div className="w-full max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animated-gradient-text">
-          Tech Stack
+          My Tech Stack
         </h2>
 
         <div className="space-y-12">

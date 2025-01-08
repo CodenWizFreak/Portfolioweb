@@ -78,7 +78,7 @@ import { Sun, Moon, Menu } from 'lucide-react'
 import React from 'react'
 
 const navItems = [
-  { name: 'Hello', target: '#hello' },
+  { name: 'Hello World!', target: '#hello' },
   { name: 'About', target: '#about' },
   { name: 'Tech Stack', target: '#skills' },
   { name: 'Projects', target: '#projects' },

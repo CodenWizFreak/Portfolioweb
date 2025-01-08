@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -57,7 +57,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif !important; /* Changed to Atma */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat Alternates', sans-serif; /* Use it for headers */
   }
 }
 
@@ -249,7 +252,6 @@ body {
   border-radius: 50%; /* Keep the shape round */
 }
 
-
 @keyframes gradient-ring-animation {
   0% {
     background-position: 0% 50%;
@@ -267,5 +269,3 @@ body {
   box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966); /* Green glow effect */
   transform: scale(1.05); /* Scale up on hover */
 }
-
-
