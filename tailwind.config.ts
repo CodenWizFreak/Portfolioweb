@@ -1,3 +1,5 @@
+import { Montserrat } from "next/font/google";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -57,7 +59,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Signika Negative', 'sans-serif'],
+        Montserrat: ['Montserrat Alternate', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
