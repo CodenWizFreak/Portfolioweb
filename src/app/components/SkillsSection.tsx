@@ -129,7 +129,7 @@ export default function SkillsSection() {
             return (
               <div key={category.category}>
                 <h3
-                  className="text-2xl font-semibold text-blue-600 dark:text-blue-300 mb-6 cursor-pointer"
+                  className="text-2xl font-semibold text-blue-600 dark:text-green-200 mb-6 cursor-pointer"
                   onClick={() => handleExpandCategory(category.category)}
                 >
                   {category.category}

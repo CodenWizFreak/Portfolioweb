@@ -74,7 +74,7 @@ export default function ProjectsSection() {
       
       {/* ML & Data Analysis Projects Section */}
       <div className="w-full max-w-4xl mb-12">
-        <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-300 mb-6">Machine Learning & Data Analysis Projects</h3>
+        <h3 className="text-2xl font-semibold text-blue-600 dark:text-green-200 mb-6">Machine Learning & Data Analysis Projects</h3>
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -134,7 +134,7 @@ export default function ProjectsSection() {
 
       {/* App Development Projects Section */}
       <div className="w-full max-w-4xl">
-        <h3 className="text-2xl font-semibold text-blue-600 dark:text-blue-300 mb-6">App Development Projects</h3>
+        <h3 className="text-2xl font-semibold text-blue-600 dark:text-green-200 mb-6">App Development Projects</h3>
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div

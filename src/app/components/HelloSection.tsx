@@ -47,7 +47,7 @@ export default function HelloSection() {
   return (
     <section
       id="hello"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center font-russo gap-12 px-6"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center font-russo gap-12 px-6 pt-10 pb-12 md:pt-20 md:pb-20"
     >
       {/* Left Section - Text */}
       <motion.div
@@ -63,7 +63,7 @@ export default function HelloSection() {
           Hello There! Ananyo Here!
         </h1>
 
-        <p className="text-xl md:text-2xl h-8 text-blue-500 dark:text-pink-400">
+        <p className="text-xl md:text-2xl h-8 text-gray-800 dark:text-pink-400">
           {text}
           <span className="typing-animation"></span>
         </p>

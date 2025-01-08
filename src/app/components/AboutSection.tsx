@@ -15,12 +15,16 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animated-gradient-text glow-text">
             About Me
           </h2>
-          <p className="text-lg mb-4 text-blue-700 dark:text-blue-100">
+          <p className="text-lg mb-4 text-gray-800 dark:text-blue-100">
             I&apos;m currently an Android App Developer, dedicated to building intuitive and user-friendly applications. 
             My passion for technology goes beyond just app development—I&apos;m also deeply interested in Data Science and Machine Learning, 
             fields that fuel my curiosity and drive to explore how technology can be used to solve real-world problems.
           </p>
-          <p className="text-lg text-blue-700 dark:text-blue-100">
+          <p className="text-lg mb-4 text-purple-800 dark:text-purple-400">
+            What other qualities do I bring to the table? I&apos;m a quick learner, a team player, and a problem solver.
+            I also have leadership experience, having led a team of developers to create a successful app that was featured on the Play Store.
+          </p>
+          <p className="text-lg text-gray-800 dark:text-blue-100">
             When I&apos;m not coding, you might find me diving into the latest tech trends, 
             debugging my way through challenges, or simply enjoying a good 80s rock playlist (Which you may have already guessed from my choice of songs) :)
           </p>
