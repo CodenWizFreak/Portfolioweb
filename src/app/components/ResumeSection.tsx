@@ -56,7 +56,7 @@ export default function ResumeSection() {
           className="text-center"
         >
           <motion.a
-            href="/AnanyoResumemain.pdf"
+            href="/Resume v25.02.08.pdf"
             download
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300 card-hover"
             whileHover={{ scale: 1.05 }}
