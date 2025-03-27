@@ -29,6 +29,14 @@ const experiences = [
     description:
       'Trained and fine-tuned large language models for various NLP tasks and applications.',
   },
+  {
+    title: 'SDE Intern',
+    company: 'Bluestock Fintech',
+    period: 'February 2025 - April 2025',
+    location: 'Remote',
+    description:
+      'Developed frontend using Bootstrap in production as an SDE Intern, collaborating with a dynamic team.',
+  },
 ];
 
 // Framer Motion animation variants
