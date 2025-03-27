@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Award, BookOpen, Trophy, Code, Brain, Briefcase, Medal, Film, Music, Mountain, Palette } from "lucide-react"
+import { Award, BookOpen, Trophy, Brain, Film, Music, Mountain, Palette } from "lucide-react"
 
 export default function AboutSection() {
   return (
