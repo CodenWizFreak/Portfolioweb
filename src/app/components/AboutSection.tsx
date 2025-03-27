@@ -133,7 +133,7 @@ export default function AboutSection() {
                 <div>
                   <h3 className="font-medium text-gray-900 dark:text-gray-100 before:content-['•'] before:text-green-500 before:mr-2 before:text-2xl">Codeplay</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    1st Position at Encode - St. Xavier's College (Autonomous) Kolkata
+                    1st Position at Encode - St. Xavier&apos;s College (Autonomous) Kolkata
                   </p>
                 </div>
               </li>
