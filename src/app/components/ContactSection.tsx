@@ -142,7 +142,7 @@ export default function ContactSection() {
           </div>
           <div className="flex items-center hover-float">
             <FaMapLocationDot className="mr-4 text-2xl text-blue-500 dark:text-blue-400" />
-            <a href="mailto:your.email@example.com" className="text-gray-800 dark:text-gray-200 hover:underline">
+            <a href="https://www.google.com/maps/place/Kolkata,+West+Bengal/@22.5354064,88.2649514,12z/data=!3m1!4b1!4m6!3m5!1s0x39f882db4908f667:0x43e330e68f6c2cbc!8m2!3d22.5743545!4d88.3628734!16zL20vMGN2dzk?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" className="text-gray-800 dark:text-gray-200 hover:underline">
               Kolkata
             </a>
           </div>
