@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaXTwitter, FaMapLocationDot } from 'react-icons/fa6'
 import React from 'react'
 
 export default function ContactSection() {
@@ -138,6 +138,12 @@ export default function ContactSection() {
             <FaEnvelope className="mr-4 text-2xl text-blue-500 dark:text-blue-400" />
             <a href="mailto:your.email@example.com" className="text-gray-800 dark:text-gray-200 hover:underline">
               dasguptaananyo28@gmail.com
+            </a>
+          </div>
+          <div className="flex items-center hover-float">
+            <FaMapLocationDot className="mr-4 text-2xl text-blue-500 dark:text-blue-400" />
+            <a href="mailto:your.email@example.com" className="text-gray-800 dark:text-gray-200 hover:underline">
+              Kolkata
             </a>
           </div>
           <div className="flex items-center space-x-4 mt-4">
