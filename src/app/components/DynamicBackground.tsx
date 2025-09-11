@@ -1,8 +1,7 @@
-'use client'
+"use client"
 
-import { useEffect, useRef } from 'react'
-import { useTheme } from 'next-themes'
-import React from 'react'
+import { useEffect, useRef } from "react"
+import { useTheme } from "next-themes"
 
 export default function DynamicBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -12,71 +11,37 @@ export default function DynamicBackground() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext("2d")
     if (!ctx) return
 
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const particles: Particle[] = []
-    const particleCount = 100
+    let animationId: number
+    let time = 0
 
-    class Particle {
-      x: number
-      y: number
-      size: number
-      speedX: number
-      speedY: number
-      color: string
+    const animate = () => {
+      time += 0.01
 
-      constructor() {
-        this.x = Math.random() * (canvas?.width || 0)
-        this.y = Math.random() * (canvas?.height || 0)
-        this.size = Math.random() * 5 + 1
-        this.speedX = Math.random() * 3 - 1.5
-        this.speedY = Math.random() * 3 - 1.5
-        this.color = `hsl(${Math.random() * 360}, 70%, 50%)`
-      }
+      const gradient = ctx.createLinearGradient(
+        Math.sin(time) * 200,
+        Math.cos(time * 0.7) * 200,
+        canvas.width + Math.cos(time * 0.5) * 200,
+        canvas.height + Math.sin(time * 0.3) * 200,
+      )
 
-      update() {
-        this.x += this.speedX
-        this.y += this.speedY
+      gradient.addColorStop(0, `hsl(${220 + Math.sin(time) * 5}, 100%, ${2 + Math.sin(time * 0.5) * 1}%)`) // Deep black-navy
+      gradient.addColorStop(0.25, `hsl(${280 + Math.cos(time * 0.8) * 8}, 80%, ${5 + Math.cos(time * 0.3) * 2}%)`) // Very dark purple
+      gradient.addColorStop(0.5, `hsl(${200 + Math.sin(time * 0.6) * 6}, 90%, ${8 + Math.sin(time * 0.7) * 3}%)`) // Very dark blue
+      gradient.addColorStop(0.75, `hsl(${180 + Math.cos(time * 0.4) * 4}, 85%, ${12 + Math.cos(time * 0.9) * 3}%)`) // Dark teal
+      gradient.addColorStop(1, `hsl(${190 + Math.sin(time * 0.9) * 5}, 75%, ${15 + Math.sin(time * 0.2) * 3}%)`) // Slightly lighter dark cyan
 
-        if (this.size > 0.2) this.size -= 0.1
+      ctx.fillStyle = gradient
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-        if (canvas && (this.x < 0 || this.x > canvas.width)) this.speedX *= -1
-        if (canvas && (this.y < 0 || this.y > canvas.height)) this.speedY *= -1
-      }
-
-      draw() {
-        if (!ctx) return
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.fill()
-      }
+      animationId = requestAnimationFrame(animate)
     }
 
-    function init() {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle())
-      }
-    }
-
-    function animate() {
-      if (!ctx) return
-      if (canvas) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-      }
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update()
-        particles[i].draw()
-      }
-      requestAnimationFrame(animate)
-    }
-
-    init()
     animate()
 
     const handleResize = () => {
@@ -84,18 +49,13 @@ export default function DynamicBackground() {
       canvas.height = window.innerHeight
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener("resize", handleResize)
+      cancelAnimationFrame(animationId)
     }
   }, [theme])
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 opacity-20"
-    />
-  )
+  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
 }
-

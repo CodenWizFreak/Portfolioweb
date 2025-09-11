@@ -1,16 +1,15 @@
-'use client'
-import { motion } from 'framer-motion'
-import { FaFileDownload, FaLaptopCode, FaServer, FaMobileAlt } from 'react-icons/fa'
-import { SiGit } from 'react-icons/si'
-import React from 'react'
+"use client"
+import { motion } from "framer-motion"
+import { FaFileDownload, FaLaptopCode, FaMobileAlt, FaBrain } from "react-icons/fa"
+import { SiGit } from "react-icons/si"
 
 const skills = [
-    { name: 'Mobile App Development (Jetpack Compose, Flutter, React Native)', icon: FaMobileAlt },
-    { name: 'Machine Learning (TensorFlow, Scikit-Learn)', icon: FaLaptopCode },
-    { name: 'Version Control (Git, GitHub)', icon: SiGit },
-    { name: 'Backend Development (Firebase)', icon: FaServer },
-  ]
-  
+  { name: "Machine Learning (TensorFlow, PyTorch, Scikit-Learn)", icon: FaBrain },
+  { name: "Deep Learning & Neural Networks", icon: FaLaptopCode },
+  { name: "Computer Vision & NLP", icon: FaBrain },
+  { name: "Mobile App Development (Flutter, Kotlin, React Native)", icon: FaMobileAlt },
+  { name: "Version Control (Git, GitHub)", icon: SiGit },
+]
 
 export default function ResumeSection() {
   return (
@@ -22,28 +21,29 @@ export default function ResumeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
+            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_5px_rgba(51,238,132,0.5)]"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-300">Professional Summary</h3>
-            <p className="text-gray-800 dark:text-gray-200">
-              Experienced app developer with a strong background in creating responsive and user-friendly applications. 
-              Also proficient in machine learning technologies and frameworks, with a passion for data analysis.
+            <h3 className="text-2xl font-semibold mb-4 text-visible">Professional Summary</h3>
+            <p className="text-visible-secondary">
+              Machine Learning Engineer with expertise in AI & ML, Deep Learning, NLP, and Computer Vision. Experienced in
+              developing intelligent systems using TensorFlow, PyTorch, and cutting-edge ML frameworks. Skilled in
+              building end-to-end ML applications that solve real-world problems.
             </p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 card-hover"
+            className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-[0_0_20px_5px_rgba(51,238,132,0.5)]"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-300">Key Skills</h3>
-            <ul className="grid grid-cols-2 gap-4">
+            <h3 className="text-2xl font-semibold mb-4 text-visible">Key Skills</h3>
+            <ul className="grid grid-cols-1 gap-3">
               {skills.map((skill, index) => (
-                <li key={index} className="flex items-center text-gray-800 dark:text-gray-200">
-                  <skill.icon className="mr-2 text-blue-500 dark:text-blue-400" />
-                  {skill.name}
+                <li key={index} className="flex items-center text-visible-secondary">
+                  <skill.icon className="mr-3 text-green-400 flex-shrink-0" />
+                  <span className="text-sm">{skill.name}</span>
                 </li>
               ))}
             </ul>
@@ -56,9 +56,9 @@ export default function ResumeSection() {
           className="text-center"
         >
           <motion.a
-            href="/Resume v25.06.20.pdf"
+            href="/Resume.pdf"
             download
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300 card-hover"
+            className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 hover:shadow-[0_0_20px_5px_rgba(51,238,132,0.5)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -70,4 +70,3 @@ export default function ResumeSection() {
     </section>
   )
 }
-

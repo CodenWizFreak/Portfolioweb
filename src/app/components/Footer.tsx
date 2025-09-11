@@ -1,7 +1,7 @@
-'use client'
-import React from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+"use client"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+import { SiResearchgate } from "react-icons/si"
 
 export default function Footer() {
   return (
@@ -12,14 +12,32 @@ export default function Footer() {
             <p>Developed with passion❤️, caffeine☕, and just a touch of madness. Enjoy the chaos!😜 </p>
           </div>
           <div className="flex space-x-4">
-            <a href="https://github.com/CodenWizFreak" target="_blank" rel="noopener noreferrer" className="hover-float">
+            <a
+              href="https://github.com/CodenWizFreak"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-float"
+            >
               <FaGithub className="text-2xl hover:text-primary transition-colors" />
             </a>
-            <a href="https://www.linkedin.com/in/ananyodasgupta2804" target="_blank" rel="noopener noreferrer" className="hover-float">
+            <a
+              href="https://www.linkedin.com/in/ananyodasgupta2804"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-float"
+            >
               <FaLinkedin className="text-2xl hover:text-primary transition-colors" />
             </a>
             <a href="https://x.com/DGAnanyo" target="_blank" rel="noopener noreferrer" className="hover-float">
               <FaXTwitter className="text-2xl hover:text-primary transition-colors" />
+            </a>
+            <a
+              href="https://www.researchgate.net/profile/Ananyo-Dasgupta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-float"
+            >
+              <SiResearchgate className="text-2xl hover:text-primary transition-colors" />
             </a>
           </div>
         </div>
@@ -27,4 +45,3 @@ export default function Footer() {
     </footer>
   )
 }
-

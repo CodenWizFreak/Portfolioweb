@@ -1,17 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 @layer base {
   :root {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222.2 47.4% 11.2%;
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
     --secondary: 300 100% 50%;
@@ -26,6 +34,19 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -48,6 +69,19 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -57,10 +91,15 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat Alternates', sans-serif !important; /* Changed to Atma */
+    font-family: "Montserrat Alternates", sans-serif !important;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat Alternates', sans-serif; /* Use it for headers */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat Alternates", sans-serif;
   }
 }
 
@@ -81,16 +120,10 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Updated animated gradient with yellow, blue, purple colors and proper animation */
 .animated-gradient-text {
   background-size: 300% 300%;
-  background-image: linear-gradient(
-    -45deg,
-    #4a90e2,
-    #9b59b6,
-    #3498db,
-    #f39c12,
-    #4a90e2
-  );
+  background-image: linear-gradient(-45deg, #4a90e2, #9b59b6, #3498db, #f39c12, #4a90e2);
   animation: gradient-animation 5s ease infinite;
   -webkit-background-clip: text;
   background-clip: text;
@@ -110,12 +143,13 @@ body {
 }
 
 .typing-animation::after {
-  content: '|';
+  content: "|";
   animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -123,21 +157,22 @@ body {
   }
 }
 
+.center-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Added green glow hover effects for cards and components */
 .card-hover {
   transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px 5px rgba(39, 254, 143, 0.89); /* Pink glow effect */
-}
-
-.glow-circle-container {
-  transition: box-shadow 0.3s ease;
-}
-
-.glow-circle-container:hover {
-  box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966); /* Pink glow effect */
+  box-shadow: 0 0 20px 5px rgba(39, 254, 143, 0.89);
 }
 
 .skill-bar-container {
@@ -146,7 +181,7 @@ body {
 }
 
 .skill-bar-container:hover {
-  box-shadow: 0 0 15px 2px rgba(51, 238, 132, 0.884); /* Pink glow effect */
+  box-shadow: 0 0 15px 2px rgba(51, 238, 132, 0.884);
 }
 
 .skill-bar {
@@ -155,7 +190,7 @@ body {
 }
 
 .skill-bar::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -172,41 +207,6 @@ body {
   }
 }
 
-/* Confetti Styles */
-.confetti {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.confetti .confetti-piece {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #ff0;
-  animation: confetti-animation 2s infinite;
-  opacity: 0.7;
-}
-
-@keyframes confetti-animation {
-  0% {
-    transform: translateY(0) rotate(0);
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(100vh) rotate(360deg);
-  }
-  100% {
-    transform: translateY(0) rotate(720deg);
-    opacity: 0.7;
-  }
-}
-
 @keyframes slide {
   0% {
     transform: translateX(100%);
@@ -220,7 +220,7 @@ body {
   animation: slide 8s linear infinite;
 }
 
-/* Add Gradient Animation for the Outer Ring */
+/* Added gradient ring animation for profile image */
 @keyframes gradient-ring-animation {
   0% {
     background-position: 0% 50%;
@@ -233,39 +233,34 @@ body {
   }
 }
 
-/* Continuous gradient animation */
 .glow-gradient-ring {
   background-size: 300% 300%;
-  background-image: linear-gradient(
-    -45deg,
-    #4a90e2,
-    #9b59b6,
-    #3498db,
-    #f39c12,
-    #4a90e2
-  );
-  animation: gradient-ring-animation 3s ease infinite; /* Continuous gradient animation */
+  background-image: linear-gradient(-45deg, #4a90e2, #9b59b6, #3498db, #f39c12, #4a90e2);
+  animation: gradient-ring-animation 3s ease infinite;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  border-width: 2px; /* This controls the thickness of the ring */
+  border-width: 2px;
   border-style: solid;
-  border-color: transparent; /* Ensure the ring's background color is controlled by gradient */
-  border-radius: 50%; /* Keep the shape round */
+  border-color: transparent;
+  border-radius: 50%;
 }
 
-@keyframes gradient-ring-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Hover effect for green glow and scale */
 .glow-gradient-ring:hover {
-  box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966); /* Green glow effect */
-  transform: scale(1.05); /* Scale up on hover */
+  box-shadow: 0 0 20px 5px rgba(69, 252, 148, 0.966);
+  transform: scale(1.05);
+}
+
+/* Added text visibility classes for proper contrast on dark backgrounds */
+.text-visible {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+.text-visible-secondary {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+.text-visible-muted {
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
 }
