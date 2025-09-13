@@ -21,22 +21,6 @@ const experiences = [
     description:
       "Fine-tuned and trained large language models for various NLP tasks including text generation, sentiment analysis, and question-answering. Worked with transformer architectures, implemented RLHF techniques, and optimized model performance for production deployment.",
   },
-  {
-    title: "Web Development Intern",
-    company: "CodSoft",
-    period: "Feb 2024 - Mar 2024",
-    location: "Remote",
-    description:
-      "Built responsive web applications with modern JavaScript frameworks, focusing on API integration and data handling patterns essential for ML model deployment and real-time data processing.",
-  },
-  {
-    title: "Android Development Intern",
-    company: "Prodigy Infotech",
-    period: "Feb 2024 - Mar 2024",
-    location: "Remote",
-    description:
-      "Developed native Android applications using Kotlin, implementing data processing pipelines and local ML model integration for on-device inference and real-time analytics.",
-  },
 ]
 
 const containerVariants = {
