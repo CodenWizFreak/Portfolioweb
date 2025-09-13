@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaRobot, FaTimes, FaPaperPlane, FaMicrophone } from "react-icons/fa"
+import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai"
 
 // Declare the SpeechRecognition type for browser compatibility
 declare global {
@@ -29,6 +30,62 @@ const preBuiltQuestions = [
   "What are his hobbies?",
   "Tell me a fun fact about him.",
 ]
+
+// Fallback response function
+const getFallbackResponse = (question: string): string => {
+  console.log("Using fallback response for:", question);
+  const lowerQuestion = question.toLowerCase();
+  
+  // Greeting responses
+  if (/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/i.test(lowerQuestion))  {
+    return "Hello! I'm Ananyo-Bot. How can I answer your questions about Ananyo's portfolio?"
+  }
+  
+  // Skills
+  if (lowerQuestion.includes("skill")) {
+    return "Ananyo is skilled in Python, JavaScript, React, Next.js, TensorFlow, PyTorch, Computer Vision, Natural Language Processing (NLP), and various other AI/ML technologies."
+  } 
+  // Experience
+  else if (lowerQuestion.includes("experience")) {
+    return "Ananyo has experience in developing AI/ML solutions, full-stack web development, and research in environmental monitoring using advanced CNN models."
+  } 
+  // Projects
+  else if (lowerQuestion.includes("project")) {
+    return "Some of his notable projects include AQI Analysis using CNN models, Hospital Management System with AI, Mobile Phone Detection using YOLO, and Disaster Preparedness systems with blockchain integration."
+  } 
+  // Education
+  else if (lowerQuestion.includes("education") || lowerQuestion.includes("background")) {
+    return "Ananyo is pursuing Computer Science with a focus on AI and Machine Learning technologies."
+  } 
+  // Contact
+  else if (lowerQuestion.includes("contact")) {
+    return "You can contact Ananyo via email at dasguptaananyo28@gmail.com. He's based in Kolkata, India."
+  } 
+  // Research
+  else if (lowerQuestion.includes("research") || lowerQuestion.includes("publication")) {
+    return "Ananyo has published research on 'AI-driven Monitoring System for Detecting People Using Mobile Phones in Restricted Zone' at ICAA 2025."
+  }
+  // Hobbies
+  else if (lowerQuestion.includes("hobbies") || lowerQuestion.includes("hobby")) {
+    return "Ananyo enjoys Research, Watching Movies & Shows, Singing, Playing Guitar/Drums, Travel & Trekking, and Art & Craft."
+  }
+  // Fun fact
+  else if (lowerQuestion.includes("fun fact") || lowerQuestion.includes("interesting")) {
+    return "Fun fact: Although primarily an AI/ML developer, Ananyo also has experience in Android app development and Blockchain technology!"
+  }
+  // Languages
+  else if (lowerQuestion.includes("language")) {
+    return "Ananyo speaks English, Hindi, Bengali, and has basic knowledge of German."
+  }
+  // Location
+  else if (lowerQuestion.includes("location") || lowerQuestion.includes("where")) {
+    return "Ananyo is based in Kolkata, India."
+  }
+  // Default
+  else {
+    return "I can only answer questions related to Ananyo Dasgupta's portfolio. How can I help you with that?"
+  }
+}
 
 export default function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false)
@@ -94,93 +151,104 @@ export default function AIChatbot() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
-  
-  // Enhanced fallback response function
-  const getFallbackResponse = (question: string): string => {
-    console.log("Using fallback response for:", question);
-    const lowerQuestion = question.toLowerCase();
-    
-    // Greeting responses
-    if (lowerQuestion.includes("hi") || lowerQuestion.includes("hello") || lowerQuestion.includes("hey") || lowerQuestion.includes("good morning") || lowerQuestion.includes("good afternoon") || lowerQuestion.includes("good evening")) {
-      return "Hello! I'm Ananyo-Bot. How can I answer your questions about Ananyo's portfolio?"
-    }
-    
-    // Skills
-    if (lowerQuestion.includes("skill")) {
-      return "Ananyo is skilled in Python, JavaScript, React, Next.js, TensorFlow, PyTorch, Computer Vision, Natural Language Processing (NLP), and various other AI/ML technologies."
-    } 
-    // Experience
-    else if (lowerQuestion.includes("experience")) {
-      return "Ananyo has experience in developing AI/ML solutions, full-stack web development, and research in environmental monitoring using advanced CNN models."
-    } 
-    // Projects
-    else if (lowerQuestion.includes("project")) {
-      return "Some of his notable projects include AQI Analysis using CNN models, Hospital Management System with AI, Mobile Phone Detection using YOLO, and Disaster Preparedness systems with blockchain integration."
-    } 
-    // Education
-    else if (lowerQuestion.includes("education") || lowerQuestion.includes("background")) {
-      return "Ananyo is pursuing Computer Science with a focus on AI and Machine Learning technologies."
-    } 
-    // Contact
-    else if (lowerQuestion.includes("contact")) {
-      return "You can contact Ananyo via email at dasguptaananyo28@gmail.com. He's based in Kolkata, India."
-    } 
-    // Research
-    else if (lowerQuestion.includes("research") || lowerQuestion.includes("publication")) {
-      return "Ananyo has published research on 'AI-driven Monitoring System for Detecting People Using Mobile Phones in Restricted Zone' at ICAA 2025."
-    }
-    // Hobbies
-    else if (lowerQuestion.includes("hobbies") || lowerQuestion.includes("hobby")) {
-      return "Ananyo enjoys Research, Watching Movies & Shows, Singing, Playing Guitar/Drums, Travel & Trekking, and Art & Craft."
-    }
-    // Fun fact
-    else if (lowerQuestion.includes("fun fact") || lowerQuestion.includes("interesting")) {
-      return "Fun fact: Although primarily an AI/ML developer, Ananyo also has experience in Android app development and Blockchain technology!"
-    }
-    // Languages
-    else if (lowerQuestion.includes("language")) {
-      return "Ananyo speaks English, Hindi, Bengali, and has basic knowledge of German."
-    }
-    // Location
-    else if (lowerQuestion.includes("location") || lowerQuestion.includes("where")) {
-      return "Ananyo is based in Kolkata, India."
-    }
-    // Default
-    else {
-      return "I can only answer questions related to Ananyo Dasgupta's portfolio. How can I help you with that?"
-    }
-  }
 
-  // API call function with better error handling
+  // Integrated Gemini API call function
   const getAIResponse = async (question: string): Promise<string> => {
+    console.log("🚀 Starting Gemini API call with question:", question);
+    
+    // Get API key from environment
+    const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    
+    if (!API_KEY) {
+      console.error("❌ GEMINI_API_KEY is not set in environment variables");
+      console.log("📄 Using fallback response instead");
+      return getFallbackResponse(question);
+    }
+
     try {
-      console.log("Calling API with question:", question);
+      const MODEL_NAME = "gemini-2.0-flash";
+      console.log("🤖 Initializing Gemini AI...");
       
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+
+      const generationConfig = {
+        temperature: 0.7,
+        topK: 40,
+        topP: 0.95,
+        maxOutputTokens: 1024,
+      };
+
+      const safetySettings = [
+        {
+          category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+          threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
         },
-        body: JSON.stringify({ message: question }),
+        {
+          category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+          threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+          threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+        },
+        {
+          category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+          threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+        },
+      ];
+
+      // Simplified and more effective prompt
+      const prompt = `You are Ananyo-Bot, an AI assistant for Ananyo Dasgupta's portfolio. Answer questions about Ananyo using the information below.
+
+ABOUT ANANYO DASGUPTA:
+- Role: AI & Machine Learning Developer
+- Location: Kolkata, India
+- Core Skills: Python, JavaScript, React, Next.js, TensorFlow, PyTorch, Computer Vision, Natural Language Processing (NLP)
+- Contact: dasguptaananyo28@gmail.com
+
+Key Projects:
+- AQI Analysis: Analyzing Air Quality Index data using CNN models
+- Hospital Management System: A comprehensive system for managing hospital operations
+- Mobile Detection: Computer vision system to detect mobile devices in restricted zones
+- Disaster Preparedness: Technology solutions for disaster readiness with blockchain integration
+
+Research:
+- Published research on "AI-driven Monitoring System for Detecting People Using Mobile Phones in Restricted Zone" at ICAA 2025
+
+Personal Info:
+- Hobbies: Research, Watching Movies & Shows, Singing, Playing Guitar/Drums, Travel & Trekking, Art & Craft
+- Languages: English, Hindi, Bengali, German (Basic)
+- Fun Fact: Besides AI/ML, Ananyo also has experience in Android app development and Blockchain technology
+- Educational Background: Pursuing Computer Science with focus on AI and Machine Learning
+
+INSTRUCTIONS:
+1. If the user greets you (hi, hello, hey, good morning, etc.), respond with: "Hello! I'm Ananyo-Bot. How can I answer your questions about Ananyo's portfolio?"
+
+2. For questions about Ananyo, provide helpful answers using the information above. Be conversational and friendly.
+
+3. If asked about something not covered in the context, say: "I can only answer questions related to Ananyo Dasgupta's portfolio. How can I help you with that?"
+
+User's question: "${question}"
+
+Respond naturally and helpfully:`;
+
+      console.log("🤖 Generating content with Gemini...");
+      const result = await model.generateContent({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig,
+        safetySettings,
       });
 
-      console.log("API response status:", response.status);
+      const response = result.response;
+      const text = response.text();
 
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      console.log("API response data:", data);
-
-      if (data.error) {
-        throw new Error(data.error);
-      }
-
-      return data.response || "Sorry, I couldn't generate a response.";
-    } catch (error) {
-      console.error("API call failed:", error);
-      // Use fallback response when API fails
+      console.log("✅ Gemini response received:", text);
+      return text;
+      
+    } catch (geminiError: any) {
+      console.error("💥 Gemini API error:", geminiError);
+      console.log("📄 Using fallback response due to Gemini error");
       return getFallbackResponse(question);
     }
   };
@@ -205,6 +273,7 @@ export default function AIChatbot() {
     setIsTyping(true)
 
     try {
+      console.log("🎬 Starting message handling for:", text);
       const aiResponse = await getAIResponse(text);
 
       const aiMessage: Message = {
@@ -215,8 +284,9 @@ export default function AIChatbot() {
       };
 
       setMessages((prev) => [...prev, aiMessage]);
+      console.log("✅ Message handling completed successfully");
     } catch (error) {
-      console.error("Error in handleSendMessage:", error);
+      console.error("💥 Error in handleSendMessage:", error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: "Sorry, I encountered an error. Please try again.",
