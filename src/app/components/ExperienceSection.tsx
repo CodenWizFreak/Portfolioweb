@@ -6,6 +6,22 @@ import { Calendar, MapPin, Briefcase } from "lucide-react"
 
 const experiences = [
   {
+    title: "Python Developer Intern",
+    company: "Qwertyzen",
+    period: "February 2026 - May 2026",
+    location: "Kolkata, India",
+    description:
+      "Engineered a standalone, real-time audio application for multi-track song composition via layered vocal and instrumental performances. Developed advanced capabilities for automatic vocal range detection, real-time accuracy tracking, and precise note-dynamic capture.",
+  },
+  {
+    title: "Multimodal Deep Learning Intern",
+    company: "Transcon IT Solutions Pvt Ltd",
+    period: "Oct 2025 - Dec 2025",
+    location: "Kolkata, India",
+    description:
+      "Built a comprehensive multimodal deep learning pipeline capable of converting a massive library of sign images into synchronized audio outputs. Streamlined computer vision and speech synthesis models to enable fluid, real-time gesture-to-text translation across extensive image datasets.",
+  },
+  {
     title: "SDE Intern",
     company: "Bluestock Fintech",
     period: "February 2025 - April 2025",
