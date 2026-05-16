@@ -18,6 +18,8 @@ const skillsData = [
       { name: "OpenCV", logo: "/logos/opencv.png" },
       { name: "Keras", logo: "/logos/keras.png" },
       { name: "YOLO", logo: "/logos/yolo.png" },
+      { name: "Spacy", logo: "/logos/spacy.png" },
+      { name: "LangChain", logo: "/logos/langchain.png" },
     ],
   },
   {
@@ -53,6 +55,7 @@ const skillsData = [
       { name: "Django", logo: "/logos/django.svg" },
       { name: "Firebase", logo: "/logos/firebase.png" },
       { name: "Supabase", logo: "/logos/supabase.png" },
+      { name: "FastAPI", logo: "/logos/fastapi.png" },
     ],
   },
   {
@@ -75,6 +78,7 @@ const skillsData = [
       { name: "PostgreSQL", logo: "/logos/postgresql.svg" },
       { name: "Firebase", logo: "/logos/firebase.png" },
       { name: "Supabase", logo: "/logos/supabase.png" },
+      { name: "Pinecone", logo: "/logos/pinecone.png" },
     ],
   },
   {
@@ -83,6 +87,7 @@ const skillsData = [
       { name: "Pandas", logo: "/logos/pandas.png" },
       { name: "Numpy", logo: "/logos/numpy.png" },
       { name: "Matplotlib", logo: "/logos/matplotlib.png" },
+      { name: "Seaborn", logo: "/logos/seaborn.svg" },
       { name: "Jupyter Notebook", logo: "/logos/jupyter.png" },
       { name: "Google Colab", logo: "/logos/colab.png" },
     ],
@@ -101,6 +106,10 @@ const skillsData = [
       { name: "Matlab", logo: "/logos/matlab.png" },
       { name: "npm", logo: "/logos/npm.png" },
       { name: "Git", logo: "/logos/git.svg" },
+      { name: "Claude Code", logo: "/logos/claudecode.png" },
+      { name: "GitHub CoPilot", logo: "/logos/copilot.png" },
+      { name: "Hugging Face", logo: "/logos/hg.png" },
+      { name: "MLflow", logo: "/logos/mlflow.png" },
     ],
   },
 ]
