@@ -7,7 +7,7 @@ import { Calendar, MapPin, Briefcase } from "lucide-react"
 const experiences = [
   {
     title: "Python Developer Intern",
-    company: "Qwertyzen",
+    company: "QwertyZen",
     period: "February 2026 - May 2026",
     location: "Kolkata, India",
     description:
