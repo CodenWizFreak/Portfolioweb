@@ -10,7 +10,7 @@ const education = [
     school: "Heritage Institute of Technology, Kolkata",
     year: "2023-2027(expected)",
     eqv: "Undergraduate Degree",
-    grade: "CGPA: 8.4/10",
+    grade: "CGPA: 8.5/10",
   },
   {
     degree: "High School Diploma (ISC)",
