@@ -8,6 +8,14 @@ import Image from "next/image"
 const allProjects = [
   // AI/ML/DL/NLP/CV Projects
   {
+    title: "NeuroMatch - Cross-Modal Brain MRI Retrieval System",
+    description:
+      "A cross-modal patient retrieval system for clinical decision support that maps multi-modality brain MRIs to a unified embedding space using Siamese networks. It encodes embeddings into spike trains for efficient similarity matching, utilizing tumor-localized constraints to ensure anatomical consistency.",
+    githubLink: "https://github.com/CodenWizFreak/neuromatch-snn",
+    image: "/snn.png",
+    tags: ["Computer Vision", "Machine Learning", "Deep Learning", "CNN", "Healthcare", "Image Processing"],
+  },
+  {
     title: "Omiguard - ML Powered Drone Based Flood Prediction, Detection & Relief System",
     description:
       "A drone-based flood prediction and relief system that leverages AI models for real-time object detection and image segmentation. The system detects floodwaters and stranded individuals through drone imagery, using an integrated Ethereum-based blockchain for secure transactions and a real-time framework for rescue mapping and relief coordination.",
